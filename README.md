@@ -1,4 +1,5 @@
 
+
 # Consent API
 ## Tech Stack Used
 - NodeJS
@@ -60,6 +61,11 @@ However the api still responds with the following
  ```
  so the api maps the `target_id` to `id` to maintain the same interface
 
+**To sum up the changes**
+ 
+ - DB saves both `unique_id` & `target_id` but the api returns `target_id` as the `id` attribute
+ - DB saves the full timestamp in the database & the api returns the full timestamp as well.
+
 ### General Architecture
 - The app follows a simple architecture of controllers / services / repositories, in addition to schemas, types & middlewares for better separation
 - In a real world scenario we might divide our code in a different way depending on the use case
@@ -67,7 +73,7 @@ However the api still responds with the following
 - In a real world scenario we should also have stricter validation as well as more definite migration schema (instead of just using `.string`)
 - The get endpoints does not have pagination, but in a real world scenario there should be pagination as well
 - The validation middleware only validates `body` & `params` as this is the requirement. Generally the middleware should also be able to validate the query as well.
-- Test cases are found in the `__tests__` folder. The cover the usual cases for each endpoint.
+- Test cases are found in the `__tests__` folder. They cover the usual cases for each endpoint.
 
 ### Sending Requests
 The api interface is the same as mentioned in requirements
