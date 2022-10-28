@@ -3,7 +3,7 @@ import Express from 'express'
 import { IEndpointSchema } from '../types/schema.types'
 import { ServerError } from '../types/error.types'
 
-export const joiMiddleware = (schema: IEndpointSchema) => {
+export const validationMiddleware = (schema: IEndpointSchema) => {
   return async (req: Express.Request, res: Express.Response, next: Express.NextFunction) => {
     const reqToValidate: any = {}
 
