@@ -10,7 +10,7 @@ The app also uses joi as a validation layer
 Original doc found [here](https://boosted-technology.notion.site/boosted-technology/Design-a-consent-API-8fd89edea3b5432a8ff084ee99efc5a7)
 
 ## Setup
-### Setup using (docker & docker-compose)
+### Setup using (docker & docker-compose) (recommended)
 - create `.envrc` file in the root directory & add the following env variables to it
 ```
 export POSTGRES_USER=
@@ -66,3 +66,4 @@ However the api still responds with the following
 - In a real world scenario we should also have stricter validation as well as more definite migration schema (instead of just using `.string`)
 - The get endpoints does not have pagination, but in a real world scenario there should be pagination as well
 - The validation middleware only validates `body` & `params` as this is the requirement. Generally the middleware should also be able to validate the query as well.
+- Test cases are found in the `__tests__` folder. The cover the usual cases for each endpoint.
