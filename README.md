@@ -1,3 +1,4 @@
+
 # Consent API
 ## Tech Stack Used
 - NodeJS
@@ -67,3 +68,18 @@ However the api still responds with the following
 - The get endpoints does not have pagination, but in a real world scenario there should be pagination as well
 - The validation middleware only validates `body` & `params` as this is the requirement. Generally the middleware should also be able to validate the query as well.
 - Test cases are found in the `__tests__` folder. The cover the usual cases for each endpoint.
+
+### Sending Requests
+The api interface is the same as mentioned in requirements
+
+To create a new consent record. Send `POST` to `/consent/target` with body
+```
+{ "name": "pharmacy.allow_marketing_emails", "consent_url": "http://example.com/marketing_terms" }
+```
+To add a new version to an existing consent, send `PATCH` to `/consent/target/:targetId`
+```
+{ "name": "pharmacy.allow_marketing_emails", "consent_url": "http://example.com/marketing_terms" }
+```
+To get all versions of a specific target, send `GET` to `/consent/target/:targetId`
+
+To get all targets in the database, send `GET` to `/consent/target`
